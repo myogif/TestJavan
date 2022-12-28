@@ -21,7 +21,7 @@ module.exports = {
       },
       age:{
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       role_id:{
         type: Sequelize.INTEGER,
