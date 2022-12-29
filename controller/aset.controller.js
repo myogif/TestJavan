@@ -60,7 +60,7 @@ exports.editAsset = async (req, res) => {
       });
     }
     
-    // TODO Chech Name in API exist or NOT
+    // TODO Check Name in API exist or NOT
 
     const result = await models.asets.update({
       name: name
@@ -139,13 +139,34 @@ exports.deleteAsset = async (req, res) => {
 
 exports.getTotalAsetByID = async (req, res) => {
   try{ 
-    const api = apiAdapter('https://dummyjson.com')
-    
-    const response = await api.get('products/search?q=iPhone%209')
+    const id = req.params.id; // get user_id from params
+
+    const aset_list = await models.asets.findAll({
+      where:{
+        user_id: id
+      },
+      attributes: ['name']
+    })
+
+    let request = aset_list.map(value => value.name);
+
+    const api = apiAdapter('https://dummyjson.com');
+    let params = [] /// array to strore new request
+    let total_price = 0
+    for(let i = 0; i < request.length; i++){
+      params[i] = request[i].replace(/ /g, "%20");
+      console.log(params[i]) 
+      const response = await api.get(`products/search?q=${request[i]}`);
+      const data = response.data.products;  
+      const price = data.map(val => (val.price))
+      total_price += parseInt(price)
+    }
+
     return res.status(200).json({
       status: 'success',
       message: 'success get data',
-      data: response.data
+      price: total_price,
+      aset_list: aset_list
     })
     
   }catch(error){
