@@ -1,0 +1,294 @@
+{
+	"info": {
+		"_postman_id": "c815210a-9664-490c-8a1e-1934a20689b0",
+		"name": "TestJavan",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12640450"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "Edit Data Orang Dalam Keluarga",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Budianto\",\r\n    \"age\": \"45\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/users/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Data Orang Baru",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Budi\",\r\n    \"gender\": \"laki-laki\",\r\n    \"age\": 40,\r\n    \"role_id\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Menghapus Data Orang Dalam Keluarga",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Budi\",\r\n    \"gender\": \"laki-laki\",\r\n    \"age\": \"40\",\r\n    \"role_id\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/users/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "aset",
+			"item": [
+				{
+					"name": "Menambah Data Aset",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"iPhone 9\",\r\n    \"user_id\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/asets",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"asets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Data Aset",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"SAMSUNG A10\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/asets/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"asets",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Hapus Data Aset",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"SAMSUNG A10\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/asets/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"asets",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Menampilkan Price Aset Keluarga",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/asets/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"asets",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Menambah Data Aset by User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"iPhone 9\",\r\n    \"user_id\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/asets/byuser?uuid=2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"asets",
+								"byuser"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "uuid",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Menghapus Data Aset by User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"iPhone 9\",\r\n    \"user_id\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/asets/byuser?id=16&uuid=2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"asets",
+								"byuser"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "16"
+								},
+								{
+									"key": "uuid",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
