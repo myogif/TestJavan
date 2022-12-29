@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     }
   },{
-    tableName: 'users'
+    tableName: 'asets'
   });
 
   // Relation
