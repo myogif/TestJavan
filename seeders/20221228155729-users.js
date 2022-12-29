@@ -8,7 +8,7 @@ module.exports = {
         {
         name: 'Bani',
         gender: 'laki-laki',
-        age: '69',
+        age: 69,
         role_id: 1,
         created_at: new Date(),
         updated_at: new Date(),
@@ -16,7 +16,7 @@ module.exports = {
         {
           name: 'Andi',
           gender: 'laki-laki',
-          age: '40',
+          age: 40,
           role_id: 2,
           created_at: new Date(),
           updated_at: new Date(),
@@ -24,7 +24,7 @@ module.exports = {
         {
           name: 'Toni',
           gender: 'laki-laki',
-          age: '14',
+          age: 14,
           role_id: 3,
           created_at: new Date(),
           updated_at: new Date(),
