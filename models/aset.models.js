@@ -1,6 +1,6 @@
 
 module.exports = (sequelize, DataTypes) => {
-  const role = sequelize.define('role', {
+  const asets = sequelize.define('asets', {
     id:{
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -11,8 +11,8 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    description:{
-      type: DataTypes.STRING,
+    user_id:{
+      type: DataTypes.INTEGER,
       allowNull: false
     },
     createdAt:{
@@ -30,9 +30,9 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   // Relation
-  role.associate = (models) => {
-    role.hasMany(models.users,{foreignKey: "role_id",});
+  asets.associate = (models) => {
+    asets.belongsTo(models.users,{foreignKey: "user_id",});
 };
 
-  return role;
+  return asets;
 }
