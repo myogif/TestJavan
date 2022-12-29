@@ -1,5 +1,7 @@
 'use strict';
 
+// TODO Add JWT 
+
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
