@@ -20,11 +20,11 @@ module.exports = {
         allowNull: false
       },
       age:{
-        type: Sequelize.STRING,
-        allowNull: true,
+        type: Sequelize.INTEGER(3),
+        allowNull: false,
       },
       role_id:{
-        type: Sequelize.INTEGER,
+        type: Sequelize.INTEGER(3),
         allowNull: false,
       },
       created_at:{
