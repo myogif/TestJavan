@@ -43,6 +43,18 @@ exports.editUser = async (req, res) => {
       age,
     } = req.body; 
     
+    const find_id = await models.users.findOne({
+      where:{
+        id: id
+      }
+    })
+
+    if(!find_id){
+      return res.status(404).json({
+        status: 'success',
+        message: 'ID Not Found '
+      });
+    }
     const result = await models.users.update({
       name: name,
       age: age,
@@ -76,6 +88,19 @@ exports.editUser = async (req, res) => {
 exports.deleteUser = async (req, res) => {
   try{
     const id = req.params.id;
+
+    const find_id = await models.users.findOne({
+      where:{
+        id: id
+      }
+    })
+
+    if(!find_id){
+      return res.status(404).json({
+        status: 'success',
+        message: 'ID Not Found'
+      });
+    }
     
     const result = await models.users.destroy({
       where: {
@@ -83,6 +108,7 @@ exports.deleteUser = async (req, res) => {
       }
     })
 
+    
     if(!result){
       return res.status(400).json({
         status: 'fail',
@@ -91,7 +117,7 @@ exports.deleteUser = async (req, res) => {
     }
     return res.status(200).json({
       status: 'success',
-      message: 'success delete data'
+      message: 'success delete users'
     })
 
 
