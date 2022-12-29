@@ -151,11 +151,17 @@ exports.addUserByFamily = async(req, res) => {
 
     const users = await models.users.findAll({
       where:{
-        id: uuid
+        id: uuid,
+        role_id: [1, 2]
       },
       attributes: ['name']
     });
-
+    if(!users.length){
+      return res.status(400).json({
+        status: 'fail',
+        message: 'fail to add data user not allowed'
+      })
+    }
     const user = users.map(val => val.name).toString();
     const message = `aset baru berhasil ditambahkan oleh ${user}`
 
@@ -199,10 +205,19 @@ exports.deleteUserByFamily = async(req, res) => {
 
     const users = await models.users.findAll({
       where:{
-        id: uuid
+        id: uuid,
+        role_id: [1,2]
       },
       attributes: ['name']
     });
+
+    if(!users.length){
+      return res.status(400).json({
+        status: 'fail',
+        message: 'fail to add data user not allowed'
+      })
+    }
+
 
     const user = users.map(val => val.name).toString();
     const message = `Aset berhasil dihapus oleh oleh ${user}`
@@ -212,7 +227,7 @@ exports.deleteUserByFamily = async(req, res) => {
         id: id 
       }
     });
-    
+
     if(!find_id){
       return res.status(404).json({
         status: 'fail',
